@@ -1,13 +1,57 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    
+@import url(https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Pixelify+Sans:wght@400..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap);
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Inter", system-ui, sans-serif;
+    @apply antialiased;
+  }
+
+  body {
+    @apply transition-colors duration-300 ease-in-out;
+  }
+
+  /* Light mode */
+  :root {
+    --color-background: 248 250 252;
+    --color-surface: 255 255 255;
+    --color-primary: 14 165 233;
+    --color-text: 15 23 42;
+  }
+
+  /* Dark mode */
+  :root[class~="dark"] {
+    --color-background: 15 23 42;
+    --color-surface: 30 41 59;
+    --color-primary: 56 189 248;
+    --color-text: 248 250 252;
+  }
+  .space-mono-regular {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.space-mono-bold {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.space-mono-regular-italic {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.space-mono-bold-italic {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: italic;
+}
+
 }
