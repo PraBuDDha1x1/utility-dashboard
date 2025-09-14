@@ -1,14 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import App from "./App";
+import Prediction from "./Prediction";
 
-test("renders Dashboard heading", () => {
+test("renders Prediction page heading", () => {
   render(
     <BrowserRouter>
-      <App />
+      <Prediction />
     </BrowserRouter>
   );
 
-  const heading = screen.getByText(/Dashboard/i);
+  const heading = screen.getByText(/Bill Prediction/i);
   expect(heading).toBeInTheDocument();
 });

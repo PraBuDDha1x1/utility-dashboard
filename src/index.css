@@ -1,57 +1,107 @@
+/* ================== Google Fonts ================== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-    
-@import url(https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Pixelify+Sans:wght@400..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap);
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Pixelify+Sans:wght@400..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* ================== Tailwind Directives ================== */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ================== Base Styles ================== */
 @layer base {
   html {
     font-family: "Inter", system-ui, sans-serif;
     @apply antialiased;
+    transition: background-color 0.5s ease, color 0.5s ease;
   }
 
   body {
-    @apply transition-colors duration-300 ease-in-out;
+    @apply transition-colors duration-500 ease-in-out;
+    background-color: rgb(var(--color-background)/1);
+    color: rgb(var(--color-text)/1);
   }
-
-  /* Light mode */
+  /* ===== Light Mode Variables ===== */
   :root {
-    --color-background: 248 250 252;
-    --color-surface: 255 255 255;
-    --color-primary: 14 165 233;
-    --color-text: 15 23 42;
+    --color-background: 248 250 252; /* light gray */
+    --color-surface: 255 255 255;     /* white */
+    --color-primary: 14 165 233;      /* sky blue */
+    --color-text: 15 23 42;           /* dark text */
   }
 
-  /* Dark mode */
+  /* ===== Dark Mode Variables ===== */
   :root[class~="dark"] {
-    --color-background: 15 23 42;
-    --color-surface: 30 41 59;
-    --color-primary: 56 189 248;
-    --color-text: 248 250 252;
+    transition: background-color 0.5s ease, color 0.5s ease;
+    --color-background: 15 23 42;     /* dark gray */
+    --color-surface: 30 41 59;        /* darker surface */
+    --color-primary: 56 189 248;      /* bright blue */
+    --color-text: 248 250 252;        /* light text */
   }
+
+  /* ===== Space Mono Font Utilities ===== */
   .space-mono-regular {
-  font-family: "Space Mono", monospace;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .space-mono-bold {
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  .space-mono-regular-italic {
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  .space-mono-bold-italic {
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  /* ===== Flash Animation (for Chatbot & highlights) ===== */
+  .flash {
+    animation: flash-animation 1s ease-in-out 3;
+  }
+
+  @keyframes flash-animation {
+    0%, 100% {
+      box-shadow: 0 0 0px rgba(255, 165, 0, 0);
+    }
+    50% {
+      box-shadow: 0 0 10px 4px rgba(255, 165, 0, 0.8);
+    }
+  }
+
+  @keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.space-mono-bold {
-  font-family: "Space Mono", monospace;
-  font-weight: 700;
-  font-style: normal;
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
 }
 
-.space-mono-regular-italic {
-  font-family: "Space Mono", monospace;
-  font-weight: 400;
-  font-style: italic;
 }
 
-.space-mono-bold-italic {
-  font-family: "Space Mono", monospace;
-  font-weight: 700;
-  font-style: italic;
+/* ================== Optional Global Utilities ================== */
+/* Smooth scroll for anchor navigation or Chatbot highlights */
+html {
+  scroll-behavior: smooth;
 }
 
+/* Input fields styling for consistency */
+input {
+  @apply border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-transparent;
+}
+
+/* Buttons hover/focus effect */
+button {
+  @apply transition transform duration-150 ease-in-out;
+}
+button:hover {
+  @apply scale-105;
 }
