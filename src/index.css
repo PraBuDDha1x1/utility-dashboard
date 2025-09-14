@@ -23,19 +23,26 @@
   /* ===== Light Mode Variables ===== */
   :root {
     --color-background: 248 250 252; /* light gray */
-    --color-surface: 255 255 255;     /* white */
-    --color-primary: 14 165 233;      /* sky blue */
-    --color-text: 15 23 42;           /* dark text */
+    --color-surface: 255 255 255;    /* white */
+    --color-primary: 14 165 233;     /* sky blue */
+    --color-text: 15 23 42;          /* dark text */
+    --transition-speed: 0.3s;
   }
 
-  /* ===== Dark Mode Variables ===== */
-  :root[class~="dark"] {
-    transition: background-color 0.5s ease, color 0.5s ease;
-    --color-background: 15 23 42;     /* dark gray */
-    --color-surface: 30 41 59;        /* darker surface */
-    --color-primary: 56 189 248;      /* bright blue */
-    --color-text: 248 250 252;        /* light text */
+  body {
+    background-color: rgb(var(--color-background));
+    color: rgb(var(--color-text));
+    transition: background-color var(--transition-speed), color var(--transition-speed);
   }
+
+  /* Dark Mode */
+  :root.dark {
+    --color-background: 15 23 42;   /* dark gray */
+    --color-surface: 30 41 59;      /* darker surface */
+    --color-primary: 56 189 248;    /* bright blue */
+    --color-text: 248 250 252;      /* light text */
+  }
+
 
   /* ===== Space Mono Font Utilities ===== */
   .space-mono-regular {
