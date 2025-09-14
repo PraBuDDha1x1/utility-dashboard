@@ -1,14 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import App from "./App";
+import Upload from "./Upload";
 
-test("renders Dashboard heading", () => {
+test("renders Upload page heading", () => {
   render(
     <BrowserRouter>
-      <App />
+      <Upload />
     </BrowserRouter>
   );
 
-  const heading = screen.getByText(/Dashboard/i);
+  const heading = screen.getByText(/Upload Utility Bill/i);
   expect(heading).toBeInTheDocument();
 });
